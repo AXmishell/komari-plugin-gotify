@@ -1,6 +1,6 @@
 # Komari Gotify Notification Plugin
 
-[简体中文](#简体中文) | [English](#english)
+[简体中文](#简体中文) | [English](./README-EN.md)
 
 ## 简体中文
 
@@ -43,19 +43,6 @@ npm run build   # 生成 dist/gotify-notification-plugin.zip 与 SHA-256
 
 `npm run build` 只校验 manifest、对入口做语法检查并打包，不会执行插件代码。
 
-### 发布到 Komari 插件市场
-
-1. 修改 `komari-plugin.json` 中的 `author`，并补上仓库地址 `url`（可选但推荐）。
-2. 打标签并推送，CI 会自动构建并创建 GitHub Release：
-   ```bash
-   git tag v1.0.0
-   git push origin v1.0.0
-   ```
-3. 在 [plugin-market](https://github.com/komari-monitor/plugin-market/issues/new/choose) 选择
-   *GitHub 托管插件* 模板提交仓库地址。市场会自动读取最新 Release。
-   - 目录中 `komari` 字段必须与 manifest 完全一致（本插件为 `>=1.6.0`）。
-   - `download` 指向 Release 中的 ZIP，`sha256` 使用 `dist/SHA256SUMS.txt` 的值。
-
 ### 1.5.1 兼容方案
 
 If you are on Komari `<= 1.5.x`，可以用内置的 **JavaScript** 通知渠道代替插件：编辑
@@ -71,80 +58,5 @@ If you are on Komari `<= 1.5.x`，可以用内置的 **JavaScript** 通知渠道
 - 离线/在线/流量等事件的去抖与冷却由 Komari 核心处理，插件只负责投递。
 
 ### 许可证
-
-[MIT](./LICENSE)
-
----
-
-## English
-
-A standalone [Komari](https://github.com/komari-monitor/komari) plugin that adds a **Gotify**
-notification channel. It registers the channel via `server.registerNotificationChannel("gotify", ...)`;
-select `Gotify` in the Komari notification settings and fill in the server URL and app token.
-
-> **Requires Komari `>= 1.6.0`.** The notification-channel registration API
-> (`server.registerNotificationChannel`) is available from 1.6.0. On 1.5.1 and earlier use the
-> [1.5.1 fallback](#151-fallback). The plugin only uses the runtime-provided `fetch` and needs **no
-> sensitive permission** (only `timeout`).
-
-### Configuration
-
-| Key | Type | Required | Default | Description |
-| --- | --- | --- | --- | --- |
-| `server_url` | string | yes | `https://gotify.example.com` | Gotify server URL, without a trailing slash |
-| `token` | string | yes | — | Gotify application token (starts with `A`) |
-| `priority` | number | no | `5` | Priority 0–10, higher is more urgent |
-| `markdown` | switch | no | `true` | Render as Markdown and convert newlines to hard breaks |
-| `click_url` | string | no | — | URL opened when the notification is clicked |
-
-### Installation
-
-1. Download `gotify-notification-plugin.zip` from [Releases](../../releases).
-2. Upload the ZIP on the Komari plugin page and enable it.
-3. Open **Settings → Notifications**, choose `Gotify`, and fill in the server URL and token.
-
-The ZIP contains `komari-plugin.json`, `script.js` and `icon.png` at its root.
-
-### Build from source
-
-Node.js 18 or newer, no third-party dependencies:
-
-```bash
-npm run icon    # optional: regenerate icon.png
-npm test        # verify the plugin logic in a sandbox against a mock Gotify server
-npm run build   # produces dist/gotify-notification-plugin.zip and its SHA-256
-```
-
-The build only validates the manifest, syntax-checks the entry and packages the files; it never
-executes the plugin code.
-
-### Publishing to the plugin market
-
-1. Set a real `author` in `komari-plugin.json` and, optionally, add your repository `url`.
-2. Tag and push; CI builds and publishes a GitHub Release:
-   ```bash
-   git tag v1.0.0
-   git push origin v1.0.0
-   ```
-3. Submit the repository on the [plugin-market](https://github.com/komari-monitor/plugin-market/issues/new/choose)
-   using the *GitHub-hosted plugin* template.
-   - The catalog `komari` field must match the manifest exactly (`>=1.6.0` here).
-   - `download` points at the release ZIP and `sha256` comes from `dist/SHA256SUMS.txt`.
-
-### 1.5.1 fallback
-
-On Komari `<= 1.5.x`, use the built-in **JavaScript** notification channel instead: edit
-[`compat/javascript-provider.js`](./compat/javascript-provider.js), fill in the server URL and token,
-and paste it into the script box under **Settings → Notifications → method `JavaScript`**. It
-implements `sendMessage(message, title)` and `sendEvent(event)` with the same Gotify logic.
-
-### Notes
-
-- The token is sent via the `X-Gotify-Key` header, so it never appears in URLs or access logs.
-- If Gotify uses a **self-signed HTTPS certificate**, the runtime may refuse the connection.
-  Configure a trusted certificate, or use an internal `http://` address.
-- Debounce/cooldown for offline/online/traffic events is handled by Komari core; the plugin only delivers.
-
-### License
 
 [MIT](./LICENSE)
