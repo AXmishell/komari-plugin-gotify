@@ -1,0 +1,6 @@
+.omo
+.codegraph
+node_modules/
+dist/
+komari.local.json
+*.log

@@ -1,0 +1,15 @@
+{
+  "name": "komari-plugin-gotify",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Gotify notification channel plugin for Komari",
+  "scripts": {
+    "icon": "node scripts/make-icon.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node test/mock-run.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}
