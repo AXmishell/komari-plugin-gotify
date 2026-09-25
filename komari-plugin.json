@@ -22,7 +22,7 @@
     "ja_JP": "AXmishell",
     "id_ID": "AXmishell"
   },
-  "version": "1.0.5",
+  "version": "1.0.6",
   "komari": ">=1.6.0",
   "entry": "script.js",
   "icon": "icon.png",

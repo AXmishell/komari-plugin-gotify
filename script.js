@@ -42,11 +42,11 @@ const configuration = {
       type: "string",
       required: true,
       help: {
-        zh_CN: "在 Gotify 中创建应用后生成的 Token（以 A 开头）",
-        zh_TW: "在 Gotify 建立應用程式後產生的 Token（以 A 開頭）",
-        en: "The application token generated in Gotify (starts with A)",
-        ja_JP: "Gotify でアプリ作成時に生成されるトークン（A で始まる）",
-        id_ID: "Token aplikasi yang dibuat di Gotify (diawali dengan A)",
+        zh_CN: "在 Gotify 中创建应用后生成的 Token",
+        zh_TW: "在 Gotify 建立應用程式後產生的 Token",
+        en: "The application token generated in Gotify",
+        ja_JP: "Gotify でアプリ作成時に生成されるトークン",
+        id_ID: "Token aplikasi yang dibuat di Gotify",
       },
     },
     {
