@@ -22,7 +22,7 @@
     "ja_JP": "Komari Community",
     "id_ID": "Komari Community"
   },
-  "version": "1.0.2",
+  "version": "1.0.3",
   "komari": ">=1.6.0",
   "entry": "script.js",
   "icon": "icon.png",
