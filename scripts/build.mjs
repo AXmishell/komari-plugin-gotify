@@ -10,7 +10,7 @@ import { deflateRawSync } from "node:zlib";
 
 const root = resolve(import.meta.dirname, "..");
 const dist = join(root, "dist");
-const EXPECTED_VERSION = "1.0.4";
+const EXPECTED_VERSION = "1.0.5";
 const EXPECTED_KOMARI = ">=1.6.0";
 
 function fail(message) {

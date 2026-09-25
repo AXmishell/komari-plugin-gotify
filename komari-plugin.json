@@ -16,13 +16,13 @@
     "id_ID": "Kirim notifikasi Komari melalui Gotify"
   },
   "author": {
-    "zh_CN": "Komari Community",
-    "zh_TW": "Komari Community",
-    "en": "Komari Community",
-    "ja_JP": "Komari Community",
-    "id_ID": "Komari Community"
+    "zh_CN": "AXmishell",
+    "zh_TW": "AXmishell",
+    "en": "AXmishell",
+    "ja_JP": "AXmishell",
+    "id_ID": "AXmishell"
   },
-  "version": "1.0.4",
+  "version": "1.0.5",
   "komari": ">=1.6.0",
   "entry": "script.js",
   "icon": "icon.png",
